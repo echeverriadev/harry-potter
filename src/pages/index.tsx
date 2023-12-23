@@ -2,9 +2,9 @@ import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import { GetStaticProps, NextPage } from "next";
 import { harryPotterApi } from "@/services/integrations";
-import { HarryPotterAPIResponse } from "@/interfaces/harry-potter-api.interface";
 import { Character } from "@/interfaces/character.interface";
 import { CharacterList } from "@/components/CharacterList";
+import { HarryPotterAPIResponse } from "@/interfaces/harry-poter-api-response.interface";
 
 interface Props {
   characters: Character[];
@@ -27,15 +27,13 @@ const HarryPotterPage: NextPage<any> = ({characters}: Props) => {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { data: { data } } = await harryPotterApi.get<HarryPotterAPIResponse>('/characters');
-
-  const characters: Character[] = data.map((character) => ({
-    id: character.id || '',
-    name: character.attributes.name || '',
-    house: character.attributes.house || '',
-    img: character.attributes.image || '',
+  const {data} = await harryPotterApi.get<HarryPotterAPIResponse[]>('/characters');
+  const characters: Character[] = data.map((character: HarryPotterAPIResponse) => ({
+    id: character.id,
+    name: character.name,
+    house: character.house,
+    img: character.image,
   }));
-
   return {
     props: {
       characters

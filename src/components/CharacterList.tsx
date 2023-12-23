@@ -9,12 +9,14 @@ interface Props {
 
 export const CharacterList: NextPage<Props> = ({ characters }) => {
   return (
-    <ul>
-      {characters.map((character) => (
-        <li key={character.id}>
-          <CardCharacter name={character.name} house={character.house} img={character.img} />
-        </li>
-      ))}
-    </ul>
+    <div className="container mx-auto p-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {
+          characters.map((character: Character) => (
+            <CardCharacter key={character.id} {...character} />
+          ))
+        }
+      </div>
+    </div>
   );
 };
