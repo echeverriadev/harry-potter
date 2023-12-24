@@ -16,7 +16,7 @@ export const CardCharacter = ({character}: Props) => {
     >
       <div className="z-10 h-full w-full overflow-hidden rounded-xl border border-gray-200 opacity-80 transition duration-300 ease-in-out group-hover:opacity-100 dark:border-gray-700 dark:opacity-70">
         <Image
-          src={character.image}
+          src={character.image || `${'/profile.webp'}`}
           className="animate-fade-in block h-full w-full scale-100 transform object-cover object-center opacity-100 transition duration-300 group-hover:scale-110 filter grayscale group-hover:grayscale-0"
           alt={character.name}
           width={200}

@@ -5,8 +5,8 @@ export default function HarryPotterPage() {
   return (
     <>
       <Head>
-        <title>Rick and Morty</title>
-        <meta name="description" content="Microfrontend Rick and Morty" />
+        <title>Harry Potter</title>
+        <meta name="description" content="Microfrontend Harry Potter" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

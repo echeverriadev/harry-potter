@@ -4,7 +4,7 @@ import { CardCharacter } from './CardCharacter';
 
 export const CharacterList = () => {
   const { data, loading, error } = useFetch();
-  if (loading) return <p>CARGANDO DUDE</p>;
+  if (loading) return <p>Cargando...</p>;
 
   if (error) return <p>Ha ocurrido un error</p>;
 
