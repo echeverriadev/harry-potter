@@ -17,10 +17,13 @@ const nextConfig = {
         name: "harryPotter",
         filename: "static/chunks/remoteEntry.js",
         remotes: remotes(options.isServer),
+        exposes: {
+          './CharacterList': './src/components/CharacterList.tsx'
+        },
         extraOptions: {
           exposePages: true,
-          automaticAsyncBoundary: true,
         },
+        shared: ['styled-components']
       })
     );
     return config;

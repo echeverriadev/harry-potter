@@ -1,6 +1,5 @@
 import { Character } from "@/interfaces/character.interface";
 import { NextPage } from "next";
-import React from "react";
 import { CardCharacter } from "./CardCharacter";
 
 interface Props {
