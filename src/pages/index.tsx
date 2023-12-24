@@ -1,39 +1,18 @@
-import React, { useEffect, useState } from "react";
-import styles from "@/styles/Home.module.css";
-import { CharacterList } from "@/components/CharacterList";
-import Head from "next/head";
+import Head from 'next/head'
+import { CharacterList } from '@/components/CharacterList'
 
-export const HarryPotterPage = () => {
-  const [list, setList] = useState([]);
-
-  const fetchData = async () => {
-    try {
-      const response = await fetch(
-        "https://hp-api.onrender.com/api/characters"
-      );
-      const characters = await response.json();
-      setList(characters);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
+export default function HarryPotterPage() {
   return (
     <>
       <Head>
-        <title>Harry Potter Characters</title>
-        <meta name="description" content="Listado de personajes de harry potter" />
+        <title>Harry Potter</title>
+        <meta name="description" content="Microfrontend Harry Potter" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main >
-        <CharacterList characters={list} />
+        <CharacterList />
       </main>
     </>
-  );
-};
-export default HarryPotterPage;
+  )
+}

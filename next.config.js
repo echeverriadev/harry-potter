@@ -12,6 +12,8 @@ const nextConfig = {
     domains: ['ik.imagekit.io'],
   },
   webpack(config, options) {
+    config.output.publicPath = 'auto';
+
     config.plugins.push(
       new NextFederationPlugin({
         name: "harryPotter",
